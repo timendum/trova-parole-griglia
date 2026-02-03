@@ -1,0 +1,36 @@
+{
+  "name": "react-typescript",
+  "version": "1.0.0",
+  "description": "React and TypeScript example starter project",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "react": "19.2.4",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9",
+    "@tailwindcss/vite": "^4.1.16",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^4",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "eslint": "^9",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16",
+    "prettier": "^3",
+    "tailwindcss": "^4",
+    "typescript": "<5.9.0",
+    "typescript-eslint": "^8.34.0",
+    "vite": "^6"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "prettier": "npx prettier -w app"
+  }
+}
