@@ -185,7 +185,7 @@ export default function CharGrid({
   };
 
   return (
-    <div className="block">
+    <div className="block max-w-150">
       <div className={`grid grid-cols-${size} ${outer}`}>
         {idxs.map((i) => {
           const r = Math.floor(i / size);
