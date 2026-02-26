@@ -98,6 +98,10 @@ function precomputeAdjacency(n: number): number[][] {
       if (r < n - 1) adj[u].push(idx(r + 1, c));
       if (c > 0) adj[u].push(idx(r, c - 1));
       if (c < n - 1) adj[u].push(idx(r, c + 1));
+      if (r > 0 && c > 0) adj[u].push(idx(r - 1, c - 1));
+      if (r > 0 && c < n - 1) adj[u].push(idx(r - 1, c + 1));
+      if (r < n - 1 && c > 0) adj[u].push(idx(r + 1, c - 1));
+      if (r < n - 1 && c < n - 1) adj[u].push(idx(r + 1, c + 1));
     }
   }
   return adj;

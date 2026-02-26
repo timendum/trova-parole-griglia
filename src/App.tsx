@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./styles.css";
 
 import CharGrid from "./chargrid";
-import Words from "./parole_uniche.json";
+//import Words from "./parole_uniche.json";
 import { findLongestWord } from "./algo";
 
 export default function App() {
   const [solutions, setSolutions] = useState<string[]>([]);
+  const [words, setWords] = useState<string[]>([]);
+
+  useEffect(() => {
+    import("./parole_uniche.json").then(({ default: data }) => {
+      setWords(data as string[]);
+    });
+  }, []);
+
   function solve(matrix: string[][]) {
     console.log(matrix);
     let board = [];
@@ -35,7 +43,7 @@ export default function App() {
       );
       return;
     }
-    let solved = findLongestWord(board, Words);
+    let solved = findLongestWord(board, words);
     setSolutions(solved);
   }
   let rows = [];
@@ -43,7 +51,12 @@ export default function App() {
   return (
     <div className="mx-auto px-1 py-1 xl:py-3">
       <h1 className="text-xl font-medium">Trova le parole nella griglia</h1>
-      <p>Start editing to see some magic happen!</p>
+      <p>Per partire è necessario esattamente un quadrato almeno 3x3.</p>
+      <p>
+        La pagina cercherà le parole più lunghe composta da lettere adiacenti
+        (anche in diagionale).
+      </p>
+      <p>(I risultati sono sotto)</p>
       <CharGrid
         size={6}
         defaultValues={[
